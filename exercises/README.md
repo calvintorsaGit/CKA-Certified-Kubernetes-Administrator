@@ -1,10 +1,10 @@
 # CKA Exercises
 
-32 hands-on labs covering all seven CKA exam domains. Each one has a task list, hints (use them — they save time), verification commands, and a full solution behind a spoiler tag.
+33 hands-on labs covering all seven CKA exam domains. Each one has a task list, hints (use them — they save time), verification commands, and a full solution behind a spoiler tag.
 
 I ordered these roughly by difficulty. If you're short on time, prioritize 09 (kubeadm), 11 (troubleshooting), 29 (etcd fix), and 28 (NetworkPolicy) — those cover the highest-weight domains and represent real exam patterns.
 
-**New in v2.0:** Exercises 23-32 based on 2026 real exam feedback. These test advanced scenarios and common failure patterns.
+**New in v2.0:** Exercises 23-49 based on 2026 real exam feedback. These test advanced scenarios and common failure patterns.
 
 | #   | Exercise                                                         | Domain                 | Difficulty | Time   |
 | -----| ------------------------------------------------------------------| ------------------------| ------------| --------|
@@ -40,14 +40,32 @@ I ordered these roughly by difficulty. If you're short on time, prioritize 09 (k
 | 30  | [TLS Configuration Update](30-tls-configuration-update/)         | Security               | Hard       | 20 min |
 | 31  | [Argo CD GitOps Setup](31-argocd-gitops-setup/)                  | Cluster Architecture   | Hard       | 25 min |
 | 32  | [Argo CD Installation via Helm](32-argocd-helm-install/)         | Cluster Architecture   | Hard       | 20 min |
+| 33  | [NGINX SSL Protocols Update](33-nginx-ssl-protocols/)            | Cluster Architecture   | Medium     | 15 min |
+| 34  | [CoreDNS FQDN ConfigMap](34-coredns-fqdn-configmap/)             | Services & Networking  | Medium     | 15 min |
+| 35  | [Kubelet TLS Bootstrapping](35-kubelet-tls-bootstrapping/)       | Security               | Hard       | 20 min |
+| 36  | [Readiness Probe Dependency](36-readiness-probe-dependency/)     | Workloads & Scheduling | Medium     | 15 min |
+| 37  | [kubectl Sorting Scripts](37-kubectl-sorting-scripts/)           | Troubleshooting        | Easy       | 10 min |
+| 38  | [Fix Dead Kubelet Service](38-fix-dead-kubelet/)                 | Troubleshooting        | Medium     | 15 min |
+| 39  | [etcd Version & Snapshot](39-etcd-version-snapshot/)             | Cluster Architecture   | Medium     | 15 min |
+| 40  | [Controlplane Architecture Report](40-controlplane-components-report/)| Cluster Architecture | Medium   | 15 min |
+| 41  | [Manual Pod Scheduling](41-manual-pod-scheduling/)               | Workloads & Scheduling | Medium     | 15 min |
+| 42  | [StorageClass Job PVC Integration](42-storageclass-job-pvc/)     | Storage                | Medium     | 15 min |
+| 43  | [Secret Mount & Env Vars](43-secret-mount-env/)                 | Workloads & Scheduling | Medium     | 15 min |
+| 44  | [Schedule Controlplane Only](44-schedule-controlplane-only/)     | Workloads & Scheduling | Medium     | 15 min |
+| 45  | [Multi-Container Downward API & Logs](45-multicontainer-downward-api-logs/)| Workloads & Scheduling | Medium | 15 min |
+| 46  | [Cluster Info Audit](46-cluster-info-audit/)                     | Services & Networking  | Medium     | 15 min |
+| 47  | [Cluster Events Logging](47-cluster-events-logging/)             | Troubleshooting        | Medium     | 15 min |
+| 48  | [API Resources Crowded Namespace](48-api-resources-crowded-namespace/)| Cluster Architecture | Medium  | 15 min |
+| 49  | [Kustomize Operator RBAC](49-kustomize-operator-rbac/)           | Cluster Architecture   | Hard       | 20 min |
 
 | Domain | Weight | Exercises |
 |---|---|---|
-| Troubleshooting | 30% | 11, 17, 29 |
-| Cluster Architecture | 25% | 04, 08, 09, 13, 14, 18, 20, 26, 31, 32 |
-| Services & Networking | 20% | 05, 15, 19, 27, 28 |
-| Workloads & Scheduling | 15% | 01, 02, 03, 06, 07, 10, 16, 21, 22, 23, 24 |
-| Storage | 10% | 12, 25 |
+| Troubleshooting | 30% | 11, 17, 29, 37, 38, 47 |
+| Cluster Architecture | 25% | 04, 08, 09, 13, 14, 18, 20, 26, 31, 32, 33, 39, 40, 48, 49 |
+| Services & Networking | 20% | 05, 15, 19, 27, 28, 34, 46 |
+| Workloads & Scheduling | 15% | 01, 02, 03, 06, 07, 10, 16, 21, 22, 23, 24, 36, 41, 43, 44, 45 |
+| Storage | 10% | 12, 25, 42 |
+| Security | 10% | 30, 35 |
 
 ## How to Use
 

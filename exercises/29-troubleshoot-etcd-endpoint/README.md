@@ -16,6 +16,15 @@ Trap architecture for this exercise:
   - etcd connection string matches `/etc/kubernetes/manifests/etcd.yaml` exactly
 - **Scoring:** Full credit for fix + explanation of root cause. Partial for fix alone.
 
+## Setup Environment
+
+Run this on your control plane node to intentionally break the API server:
+
+```bash
+sudo sed -i 's|--etcd-servers=https://127.0.0.1:2379|--etcd-servers=https://10.200.0.1:2379|' /etc/kubernetes/manifests/kube-apiserver.yaml
+```
+*(Wait 15-20 seconds after running this before proceeding to the tasks, so the API server has time to crash).*
+
 ## Tasks
 
 1. Cluster is broken: API server won't start

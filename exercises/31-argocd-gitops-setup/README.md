@@ -8,12 +8,12 @@ Install Argo CD and configure it to deploy applications from a Git repository. T
 
 1. Install Argo CD in cluster:
    - Create `argocd` namespace
-   - Apply Argo CD manifests (WITHOUT CRDs if specified)
-2. Generate Kubernetes manifest template:
+   - Apply Argo CD manifests from: `https://raw.githubusercontent.com/argoproj/argo-cd/v2.10.3/manifests/install.yaml`
+2. Create a Kubernetes manifest for an Argo CD Application:
    - Define an Application resource
-   - Point to a Git repository
-   - Specify deployment target namespace
-   - Do NOT install CRDs — let Argo CD install them
+   - Point to Git repository: `https://github.com/argoproj/argocd-example-apps.git`
+   - Set repository path to `guestbook`
+   - Specify deployment target namespace as `default` and server as `https://kubernetes.default.svc`
 3. Save generated Application manifest to file
 4. Verify Argo CD server is Running
 5. Apply the Application manifest

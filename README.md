@@ -3,7 +3,7 @@
 [![YAML Validation](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/actions/workflows/validate.yml/badge.svg)](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator/actions/workflows/validate.yml)
 [![CKA](https://img.shields.io/badge/CKA-Certified%202026-success)]()
 [![Kubernetes](https://img.shields.io/badge/Kubernetes-v1.35-326CE5?logo=kubernetes&logoColor=white)](https://kubernetes.io/)
-[![Exercises](https://img.shields.io/badge/Exercises-31-blue)](exercises/)
+[![Exercises](https://img.shields.io/badge/Exercises-49-blue)](exercises/)
 [![Skeletons](https://img.shields.io/badge/YAML%20Skeletons-23-blue)](skeletons/)
 [![Mock Exams](https://img.shields.io/badge/Mock%20Exams-2-success)](mock-exams/)
 [![GitHub stars](https://img.shields.io/github/stars/theplatformlab/CKA-Certified-Kubernetes-Administrator?style=social)](https://github.com/theplatformlab/CKA-Certified-Kubernetes-Administrator)
@@ -32,7 +32,7 @@ If you're time-pressured, here's the fast track:
 
 1. **Start a practice cluster** _(if needed)_ — if `kubectl` says connection refused or you don't have a local cluster yet: `bash scripts/init-cluster.sh`. This creates a kind-based k8s 1.35.1 cluster with one command. [Read more](#local-cluster-setup).
 2. **Run the setup script** — get your aliases and vim config right from day one: [scripts/exam-setup.sh](scripts/exam-setup.sh)
-3. **Do the exercises** — work through the [31 hands-on exercises](exercises/) in order. Each one targets a specific CKA domain.
+3. **Do the exercises** — work through the [49 hands-on exercises](exercises/) in order. Each one targets a specific CKA domain.
 4. **Use YAML templates** — reference [TEMPLATES.md](TEMPLATES.md) for all skeleton YAML. Copy, paste, modify.
 5. **Do the mock exam** — practice under exam conditions with timed scenarios. See [mock-exams/README.md](mock-exams/README.md) for prep strategy and scoring.
 6. **Do killer.sh twice** — once 2 weeks out, once 3 days before. See [killer.sh vs the Real Exam](#killersh-vs-the-real-cka-exam).
@@ -45,7 +45,7 @@ If you're time-pressured, here's the fast track:
 ```
 CKA-Certified-Kubernetes-Administrator/
 ├── README.md                          # This guide (you're here)
-├── exercises/                         # 31 hands-on labs
+├── exercises/                         # 49 hands-on labs
 │   ├── 01-pod-basics/
 │   ├── 02-multi-container-pod/
 │   ├── 03-configmap-secret/
@@ -76,7 +76,25 @@ CKA-Certified-Kubernetes-Administrator/
 │   ├── 28-network-policy-complex/
 │   ├── 29-troubleshoot-etcd-endpoint/
 │   ├── 30-tls-configuration-update/
-│   └── 31-argocd-gitops-setup/
+│   ├── 31-argocd-gitops-setup/
+│   ├── 32-argocd-helm-install/
+│   ├── 33-nginx-ssl-protocols/
+│   ├── 34-coredns-fqdn-configmap/
+│   ├── 35-kubelet-tls-bootstrapping/
+│   ├── 36-readiness-probe-dependency/
+│   ├── 37-kubectl-sorting-scripts/
+│   ├── 38-fix-dead-kubelet/
+│   ├── 39-etcd-version-snapshot/
+│   ├── 40-controlplane-components-report/
+│   ├── 41-manual-pod-scheduling/
+│   ├── 42-storageclass-job-pvc/
+│   ├── 43-secret-mount-env/
+│   ├── 44-schedule-controlplane-only/
+│   ├── 45-multicontainer-downward-api-logs/
+│   ├── 46-cluster-info-audit/
+│   ├── 47-cluster-events-logging/
+│   ├── 48-api-resources-crowded-namespace/
+│   └── 49-kustomize-operator-rbac/
 ├── TEMPLATES.md                       # All YAML templates in collapsible format
 ├── skeletons/                         # 23 YAML template files (see TEMPLATES.md)
 ├── mock-exams/                        # Full practice exams (15 questions, 2 hours each)

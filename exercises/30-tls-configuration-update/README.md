@@ -18,6 +18,52 @@ TLS configuration troubleshooting involves configuration and restart traps:
   - Both protocols work (don't break existing functionality)
 - **Scoring:** Full credit for both TLS versions working + ConfigMap correct. Partial for config edit without restart.
 
+## Setup Environment
+
+Run this to create the starting scenario:
+
+```bash
+cat <<EOF | kubectl apply -f -
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: exercise-30
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: api-tls-config
+  namespace: exercise-30
+data:
+  tls_min_version: "1.3"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: secure-api
+  namespace: exercise-30
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: secure-api
+  template:
+    metadata:
+      labels:
+        app: secure-api
+    spec:
+      containers:
+      - name: api
+        image: nginx:alpine
+        env:
+        - name: TLS_MIN_VERSION
+          valueFrom:
+            configMapKeyRef:
+              name: api-tls-config
+              key: tls_min_version
+EOF
+```
+
 ## Tasks
 
 1. A service currently supports only TLS 1.3
