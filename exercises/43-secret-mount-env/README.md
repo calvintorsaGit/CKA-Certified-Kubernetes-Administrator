@@ -4,6 +4,24 @@
 
 Mount existing Secret files into a Pod filesystem as read-only volumes and map Secret key-values to environment variables.
 
+## Setup Environment
+
+Run this script to prepare `/course/11/secret1.yaml`:
+
+```bash
+sudo mkdir -p /course/11
+
+cat <<EOF | sudo tee /course/11/secret1.yaml > /dev/null
+apiVersion: v1
+kind: Secret
+metadata:
+  name: secret1
+type: Opaque
+stringData:
+  api.key: "super-secret-key-12345"
+EOF
+```
+
 ## Tasks
 
 Create Namespace `secret` and implement:

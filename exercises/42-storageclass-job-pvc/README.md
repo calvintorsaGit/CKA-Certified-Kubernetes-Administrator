@@ -4,6 +4,37 @@
 
 Create a custom StorageClass (`WaitForFirstConsumer`, `Retain`) and configure a Kubernetes Job manifest to claim dynamic persistent storage.
 
+## Setup Environment
+
+Run this script on your node to create the initial directory and broken Job manifest at `/course/10/backup.yaml`:
+
+```bash
+sudo mkdir -p /course/10
+
+cat <<EOF | sudo tee /course/10/backup.yaml > /dev/null
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: backup-job
+  namespace: default
+spec:
+  template:
+    spec:
+      containers:
+      - name: backup
+        image: busybox:1.36
+        command: ["sh", "-c", "echo 'Backup completed at \$(date)' > /backup/data.txt"]
+        volumeMounts:
+        - name: backup-vol
+          mountPath: /backup
+      restartPolicy: Never
+      volumes:
+      - name: backup-vol
+        persistentVolumeClaim:
+          claimName: backup-pvc
+EOF
+```
+
 ## Tasks
 
 1. Create a StorageClass named `local-backup` with:

@@ -4,6 +4,32 @@
 
 Filter namespaced API resources and programmatically determine the namespace with the maximum number of Role definitions.
 
+## Setup Environment
+
+Run this script to set up sample project namespaces and roles:
+
+```bash
+sudo mkdir -p /course/16
+
+# Create test project namespaces
+kubectl create ns project-alpha
+kubectl create ns project-beta
+kubectl create ns project-gamma
+
+# Populate Roles in project-alpha (2 roles)
+kubectl create role role-a1 --verb=get --resource=pods -n project-alpha
+kubectl create role role-a2 --verb=get --resource=services -n project-alpha
+
+# Populate Roles in project-beta (4 roles - winner)
+kubectl create role role-b1 --verb=get --resource=pods -n project-beta
+kubectl create role role-b2 --verb=get --resource=services -n project-beta
+kubectl create role role-b3 --verb=get --resource=configmaps -n project-beta
+kubectl create role role-b4 --verb=get --resource=secrets -n project-beta
+
+# Populate Roles in project-gamma (1 role)
+kubectl create role role-g1 --verb=get --resource=pods -n project-gamma
+```
+
 ## Tasks
 
 1. Write names of all namespaced Kubernetes resources into `/course/16/resources.txt`.

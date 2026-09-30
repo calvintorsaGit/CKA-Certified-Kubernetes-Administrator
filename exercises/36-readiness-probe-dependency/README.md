@@ -4,6 +4,26 @@
 
 Configure a Pod whose readiness probe depends on an external service endpoint, and resolve the dependency by creating a backing Pod.
 
+## Setup Environment
+
+Run this script to pre-create the target Service `service-am-i-ready` with selector `id: cross-server-ready`:
+
+```bash
+cat <<EOF | kubectl apply -f -
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-am-i-ready
+  namespace: default
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    id: cross-server-ready
+EOF
+```
+
 ## Tasks
 
 Do the following in Namespace `default`:
