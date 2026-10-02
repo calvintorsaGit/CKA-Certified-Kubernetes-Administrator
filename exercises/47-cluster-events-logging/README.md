@@ -4,6 +4,22 @@
 
 Capture cluster-wide sorted events and log lifecycle events triggered by deleting pods and killing container runtime processes.
 
+## Setup Environment
+
+Run this script to prepare the directory structure for the exercise:
+
+```bash
+# Clean up any previous attempts
+sudo rm -rf /course/15
+sudo rm -f /course/15/pod_kill.log /course/15/container_kill.log /course/15/cluster_events.sh
+
+# Create the directory
+sudo mkdir -p /course/15
+
+# Ensure kube-proxy is running (it is usually part of the cluster by default)
+echo "Checking for kube-proxy pods..."
+kubectl get pods -n kube-system -l k8s-app=kube-proxy
+```
 ## Tasks
 
 1. Write a `kubectl` command into `/course/15/cluster_events.sh` to display all cluster events sorted by `creationTimestamp`.
