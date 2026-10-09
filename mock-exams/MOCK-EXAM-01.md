@@ -27,8 +27,8 @@ The pod manifest already exists; you only need to update it.
 A developer needs to be able to list Deployments and Pods in the `staging` namespace, but not in other namespaces. Currently, they cannot perform these actions.
 
 Create:
-1. A Role that allows listing Pods and Deployments in `staging`
-2. A RoleBinding that grants this Role to the user `dev-user`
+1. A Role named `dev-list-role` that allows listing Pods and Deployments in `staging`
+2. A RoleBinding named `dev-list-binding` that grants this Role to the user `dev-user`
 
 Verify the permissions work using `kubectl auth can-i`.
 

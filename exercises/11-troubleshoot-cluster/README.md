@@ -30,12 +30,14 @@ Before working through these scenarios, understand the trap architecture:
 
 ### Scenario B: CoreDNS troubleshooting
 
-1. Create a pod and try to resolve a service name — should fail if CoreDNS is broken
-2. Check CoreDNS pods in `kube-system`
-3. Check CoreDNS logs for errors
-4. Verify the CoreDNS ConfigMap for misconfigurations
-5. Check that the `kube-dns` service has endpoints
-6. Fix any issues and verify DNS resolution works
+**Scenario:** Applications in the cluster are failing to resolve internal DNS names. You need to diagnose and restore cluster DNS functionality.
+
+1. **Verify the failure:** Run a test pod to confirm DNS is broken:
+   `kubectl run test-dns --image=busybox:1.37 --rm -it -- nslookup kubernetes`
+2. **Check the Deployment:** Verify if the `coredns` deployment in the `kube-system` namespace is actually running any pods (Is it scaled to 0?).
+3. **Check the ConfigMap:** If the pods are running but crashing (CrashLoopBackOff), inspect the `coredns` ConfigMap for syntax errors or typos (e.g., misspelled plugins).
+4. **Check the Service:** Verify the `kube-dns` Service exists and has matching Endpoints pointing to the pods.
+5. **Fix & Verify:** Resolve the issue (scale up the deployment, fix the ConfigMap typo, etc.) and run the `test-dns` command again until it succeeds.
 
 ### Scenario C: kube-proxy
 

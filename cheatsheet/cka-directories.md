@@ -6,13 +6,13 @@
 
 ## 🏗️ Control Plane & Static Pods
 
-| Directory | Purpose |
-|---|---|
-| `/etc/kubernetes/` | Main Kubernetes config directory |
+| Directory                    | Purpose                                                                                  |
+| ------------------------------| ------------------------------------------------------------------------------------------|
+| `/etc/kubernetes/`           | Main Kubernetes config directory                                                         |
 | `/etc/kubernetes/manifests/` | **Static pod manifests** — kube-apiserver, etcd, kube-scheduler, kube-controller-manager |
-| `/etc/kubernetes/pki/` | Cluster TLS certificates (CA, apiserver certs) |
-| `/etc/kubernetes/pki/etcd/` | etcd-specific certs: `ca.crt`, `server.crt`, `server.key` |
-| `/etc/kubernetes/admin.conf` | Admin kubeconfig file (copy to `~/.kube/config` after `kubeadm init`) |
+| `/etc/kubernetes/pki/`       | Cluster TLS certificates (CA, apiserver certs)                                           |
+| `/etc/kubernetes/pki/etcd/`  | etcd-specific certs: `ca.crt`, `server.crt`, `server.key`                                |
+| `/etc/kubernetes/admin.conf` | Admin kubeconfig file (copy to `~/.kube/config` after `kubeadm init`)                    |
 
 ### Static Pod Manifests — What's Inside `/etc/kubernetes/manifests/`
 
@@ -54,14 +54,14 @@
 
 ## ⚙️ Kubelet
 
-| Directory / File | Purpose |
-|---|---|
-| `/var/lib/kubelet/` | Kubelet working directory |
-| `/var/lib/kubelet/config.yaml` | Kubelet configuration (contains `staticPodPath`, `clusterDNS`, etc.) |
-| `/var/lib/kubelet/pki/` | Kubelet TLS certificates |
-| `/var/lib/kubelet/pki/kubelet-client-current.pem` | Client cert (kubelet → apiserver) |
-| `/var/lib/kubelet/pki/kubelet-server-current.pem` | Server cert (apiserver → kubelet) |
-| `/etc/systemd/system/kubelet.service.d/` | Kubelet systemd drop-in configuration |
+| Directory / File                                  | Purpose                                                              |
+| ---------------------------------------------------| ----------------------------------------------------------------------|
+| `/var/lib/kubelet/`                               | Kubelet working directory                                            |
+| `/var/lib/kubelet/config.yaml`                    | Kubelet configuration (contains `staticPodPath`, `clusterDNS`, etc.) |
+| `/var/lib/kubelet/pki/`                           | Kubelet TLS certificates                                             |
+| `/var/lib/kubelet/pki/kubelet-client-current.pem` | Client cert (kubelet → apiserver)                                    |
+| `/var/lib/kubelet/pki/kubelet-server-current.pem` | Server cert (apiserver → kubelet)                                    |
+| `/etc/systemd/system/kubelet.service.d/`          | Kubelet systemd drop-in configuration                                |
 
 ### Finding the Static Pod Path (if non-default)
 
@@ -109,10 +109,10 @@ ETCDCTL_API=3 etcdctl snapshot restore /tmp/etcd-backup.db \
 
 ## 🌐 Container Runtime & CNI
 
-| Directory | Purpose |
-|---|---|
-| `/etc/cni/net.d/` | CNI plugin configuration files |
-| `/opt/cni/bin/` | CNI plugin binaries |
+| Directory                     | Purpose                          |
+| -------------------------------| ----------------------------------|
+| `/etc/cni/net.d/`             | CNI plugin configuration files   |
+| `/opt/cni/bin/`               | CNI plugin binaries              |
 | `/etc/containerd/config.toml` | containerd runtime configuration |
 
 ---

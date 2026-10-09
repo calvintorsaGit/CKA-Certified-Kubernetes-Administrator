@@ -48,12 +48,12 @@ k exec app-frontend -n production -- cat /etc/app/config.yaml
 
 Create Role:
 ```bash
-k create role list-resources --verb=list --resource=pods,deployments -n staging
+k create role dev-list-role --verb=list --resource=pods,deployments -n staging
 ```
 
 Create RoleBinding:
 ```bash
-k create rolebinding dev-user-binding --role=list-resources --user=dev-user -n staging
+k create rolebinding dev-list-binding --role=dev-list-role --user=dev-user -n staging
 ```
 
 Verify permissions:

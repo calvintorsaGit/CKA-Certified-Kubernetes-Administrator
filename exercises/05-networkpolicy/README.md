@@ -13,7 +13,7 @@ Create NetworkPolicies to control pod-to-pod traffic. Watch out for the DNS gotc
 3. Verify that `frontend` can reach `backend` on port 80 (should work before any policy)
 4. Create a NetworkPolicy named `backend-policy` that:
    - Applies to pods with label `role=backend`
-   - Allows ingress only from pods with label `role=frontend` on port 80
+   - Allows ingress only from pods with lab el `role=frontend` on port 80
    - Allows egress to DNS (UDP port 53) — if you skip this, DNS breaks
 5. Verify that `frontend` can still reach `backend`
 6. Create a third pod `attacker` with label `role=attacker` and verify it cannot reach `backend`
